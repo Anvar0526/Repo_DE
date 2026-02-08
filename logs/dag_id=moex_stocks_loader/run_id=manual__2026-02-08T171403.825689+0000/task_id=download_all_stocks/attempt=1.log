@@ -1,0 +1,44 @@
+[2026-02-08T17:14:06.727+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-08T17:14:06.745+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: moex_stocks_loader.download_all_stocks manual__2026-02-08T17:14:03.825689+00:00 [queued]>
+[2026-02-08T17:14:06.751+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: moex_stocks_loader.download_all_stocks manual__2026-02-08T17:14:03.825689+00:00 [queued]>
+[2026-02-08T17:14:06.752+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 3
+[2026-02-08T17:14:06.763+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): download_all_stocks> on 2026-02-08 17:14:03.825689+00:00
+[2026-02-08T17:14:06.772+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=536) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-08T17:14:06.773+0000] {standard_task_runner.py:72} INFO - Started process 538 to run task
+[2026-02-08T17:14:06.774+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'moex_stocks_loader', 'download_all_stocks', 'manual__2026-02-08T17:14:03.825689+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/ticker_dag.py', '--cfg-path', '/tmp/tmpwvb_9zen']
+[2026-02-08T17:14:06.776+0000] {standard_task_runner.py:105} INFO - Job 16: Subtask download_all_stocks
+[2026-02-08T17:14:06.832+0000] {task_command.py:467} INFO - Running <TaskInstance: moex_stocks_loader.download_all_stocks manual__2026-02-08T17:14:03.825689+00:00 [running]> on host bd7f3fef13db
+[2026-02-08T17:14:06.902+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='student' AIRFLOW_CTX_DAG_ID='moex_stocks_loader' AIRFLOW_CTX_TASK_ID='download_all_stocks' AIRFLOW_CTX_EXECUTION_DATE='2026-02-08T17:14:03.825689+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-08T17:14:03.825689+00:00'
+[2026-02-08T17:14:06.903+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-02-08T17:14:06.918+0000] {logging_mixin.py:190} INFO - 📅 Загрузка за период: 2026-02-06 - 2026-02-07
+[2026-02-08T17:14:06.919+0000] {logging_mixin.py:190} INFO - 📈 Скачиваем Apple (AAPL)...
+[2026-02-08T17:14:08.022+0000] {logging_mixin.py:190} INFO -   ❌ Ошибка AAPL: keys must be str, int, float, bool or None, not tuple
+[2026-02-08T17:14:08.023+0000] {logging_mixin.py:190} INFO - 📈 Скачиваем Microsoft (MSFT)...
+[2026-02-08T17:14:08.622+0000] {logging_mixin.py:190} INFO -   ❌ Ошибка MSFT: keys must be str, int, float, bool or None, not tuple
+[2026-02-08T17:14:08.622+0000] {logging_mixin.py:190} INFO - 📈 Скачиваем Сбербанк (SBER.ME)...
+[2026-02-08T17:14:08.935+0000] {history.py:276} ERROR - $SBER.ME: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:14:08.941+0000] {multi.py:176} ERROR - 
+1 Failed download:
+[2026-02-08T17:14:08.941+0000] {multi.py:189} ERROR - ['SBER.ME']: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:14:08.944+0000] {logging_mixin.py:190} INFO -   ⚠️ Нет данных для SBER.ME
+[2026-02-08T17:14:08.945+0000] {logging_mixin.py:190} INFO - 📈 Скачиваем Газпром (GAZP.ME)...
+[2026-02-08T17:14:09.262+0000] {history.py:276} ERROR - $GAZP.ME: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:14:09.264+0000] {multi.py:176} ERROR - 
+1 Failed download:
+[2026-02-08T17:14:09.265+0000] {multi.py:189} ERROR - ['GAZP.ME']: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:14:09.267+0000] {logging_mixin.py:190} INFO -   ⚠️ Нет данных для GAZP.ME
+[2026-02-08T17:14:09.268+0000] {logging_mixin.py:190} INFO - 📈 Скачиваем Полюс (PLZL.ME)...
+[2026-02-08T17:14:09.729+0000] {history.py:276} ERROR - $PLZL.ME: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:14:09.732+0000] {multi.py:176} ERROR - 
+1 Failed download:
+[2026-02-08T17:14:09.733+0000] {multi.py:189} ERROR - ['PLZL.ME']: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:14:09.735+0000] {logging_mixin.py:190} INFO -   ⚠️ Нет данных для PLZL.ME
+[2026-02-08T17:14:09.736+0000] {logging_mixin.py:190} INFO - 🎉 Итого: 0/5 акций успешно загружено
+[2026-02-08T17:14:09.736+0000] {python.py:240} INFO - Done. Returned value was: {}
+[2026-02-08T17:14:09.760+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-02-08T17:14:09.760+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=moex_stocks_loader, task_id=download_all_stocks, run_id=manual__2026-02-08T17:14:03.825689+00:00, execution_date=20260208T171403, start_date=20260208T171406, end_date=20260208T171409
+[2026-02-08T17:14:09.832+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-08T17:14:09.848+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-08T17:14:09.851+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

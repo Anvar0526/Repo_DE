@@ -1,0 +1,13 @@
+{
+  "TATN": {"name": "Татнефть"},
+  "TRNFP": {"name": "Транснефть"},
+  "FIVE": {"name": "X5 Retail Group"},
+  "MGNT": {"name": "Магнит"},
+  "YNDX": {"name": "Яндекс"},
+  "OZON": {"name": "Ozon"},
+  "MTSS": {"name": "МТС"},
+  "VTBR": {"name": "ВТБ"},
+  "HHRU": {"name": "HeadHunter"},
+  "RTKM": {"name": "Ростелеком"},
+  "NVTK": {"name": "Новатэк"}
+}

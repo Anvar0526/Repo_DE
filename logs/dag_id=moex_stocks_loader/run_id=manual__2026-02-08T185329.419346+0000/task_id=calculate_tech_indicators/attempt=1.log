@@ -1,0 +1,21 @@
+[2026-02-08T18:53:30.440+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-08T18:53:30.457+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: moex_stocks_loader.calculate_tech_indicators manual__2026-02-08T18:53:29.419346+00:00 [queued]>
+[2026-02-08T18:53:30.463+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: moex_stocks_loader.calculate_tech_indicators manual__2026-02-08T18:53:29.419346+00:00 [queued]>
+[2026-02-08T18:53:30.463+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-02-08T18:53:30.472+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): calculate_tech_indicators> on 2026-02-08 18:53:29.419346+00:00
+[2026-02-08T18:53:30.481+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=2044) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-08T18:53:30.483+0000] {standard_task_runner.py:72} INFO - Started process 2048 to run task
+[2026-02-08T18:53:30.483+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'moex_stocks_loader', 'calculate_tech_indicators', 'manual__2026-02-08T18:53:29.419346+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/ticker_dag.py', '--cfg-path', '/tmp/tmpv_i0r5pw']
+[2026-02-08T18:53:30.485+0000] {standard_task_runner.py:105} INFO - Job 36: Subtask calculate_tech_indicators
+[2026-02-08T18:53:30.534+0000] {task_command.py:467} INFO - Running <TaskInstance: moex_stocks_loader.calculate_tech_indicators manual__2026-02-08T18:53:29.419346+00:00 [running]> on host bd7f3fef13db
+[2026-02-08T18:53:30.606+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='moex_stocks_loader' AIRFLOW_CTX_TASK_ID='calculate_tech_indicators' AIRFLOW_CTX_EXECUTION_DATE='2026-02-08T18:53:29.419346+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-08T18:53:29.419346+00:00'
+[2026-02-08T18:53:30.607+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-02-08T18:53:30.771+0000] {logging_mixin.py:190} INFO - ✅ Тех.анализ рассчитан
+[2026-02-08T18:53:30.771+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-02-08T18:53:30.781+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-02-08T18:53:30.782+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=moex_stocks_loader, task_id=calculate_tech_indicators, run_id=manual__2026-02-08T18:53:29.419346+00:00, execution_date=20260208T185329, start_date=20260208T185330, end_date=20260208T185330
+[2026-02-08T18:53:30.826+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-08T18:53:30.845+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-08T18:53:30.848+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

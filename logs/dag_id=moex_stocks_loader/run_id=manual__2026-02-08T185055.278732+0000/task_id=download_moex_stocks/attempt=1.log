@@ -1,0 +1,44 @@
+[2026-02-08T18:50:57.823+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-08T18:50:57.839+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: moex_stocks_loader.download_moex_stocks manual__2026-02-08T18:50:55.278732+00:00 [queued]>
+[2026-02-08T18:50:57.845+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: moex_stocks_loader.download_moex_stocks manual__2026-02-08T18:50:55.278732+00:00 [queued]>
+[2026-02-08T18:50:57.846+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-02-08T18:50:57.855+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): download_moex_stocks> on 2026-02-08 18:50:55.278732+00:00
+[2026-02-08T18:50:57.864+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1997) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-08T18:50:57.866+0000] {standard_task_runner.py:72} INFO - Started process 2006 to run task
+[2026-02-08T18:50:57.865+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'moex_stocks_loader', 'download_moex_stocks', 'manual__2026-02-08T18:50:55.278732+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/ticker_dag.py', '--cfg-path', '/tmp/tmpxhtgh5vr']
+[2026-02-08T18:50:57.868+0000] {standard_task_runner.py:105} INFO - Job 35: Subtask download_moex_stocks
+[2026-02-08T18:50:57.924+0000] {task_command.py:467} INFO - Running <TaskInstance: moex_stocks_loader.download_moex_stocks manual__2026-02-08T18:50:55.278732+00:00 [running]> on host bd7f3fef13db
+[2026-02-08T18:50:57.998+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='moex_stocks_loader' AIRFLOW_CTX_TASK_ID='download_moex_stocks' AIRFLOW_CTX_EXECUTION_DATE='2026-02-08T18:50:55.278732+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-08T18:50:55.278732+00:00'
+[2026-02-08T18:50:57.999+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-02-08T18:50:58.015+0000] {logging_mixin.py:190} INFO - ✅ Загружен config.json: 11 тикеров
+[2026-02-08T18:50:58.015+0000] {logging_mixin.py:190} INFO - 📊 Загружаю Татнефть (TATN)
+[2026-02-08T18:50:58.123+0000] {logging_mixin.py:190} INFO - ✅ TATN: 100 записей сохранено
+[2026-02-08T18:50:58.124+0000] {logging_mixin.py:190} INFO - 📊 Загружаю Транснефть (TRNFP)
+[2026-02-08T18:50:58.188+0000] {logging_mixin.py:190} INFO - ✅ TRNFP: 100 записей сохранено
+[2026-02-08T18:50:58.188+0000] {logging_mixin.py:190} INFO - 📊 Загружаю X5 Retail Group (FIVE)
+[2026-02-08T18:50:58.259+0000] {logging_mixin.py:190} INFO - ✅ FIVE: 100 записей сохранено
+[2026-02-08T18:50:58.260+0000] {logging_mixin.py:190} INFO - 📊 Загружаю Магнит (MGNT)
+[2026-02-08T18:50:58.343+0000] {logging_mixin.py:190} INFO - ✅ MGNT: 100 записей сохранено
+[2026-02-08T18:50:58.343+0000] {logging_mixin.py:190} INFO - 📊 Загружаю Яндекс (YNDX)
+[2026-02-08T18:50:58.423+0000] {logging_mixin.py:190} INFO - ✅ YNDX: 100 записей сохранено
+[2026-02-08T18:50:58.423+0000] {logging_mixin.py:190} INFO - 📊 Загружаю Ozon (OZON)
+[2026-02-08T18:50:58.496+0000] {logging_mixin.py:190} INFO - ✅ OZON: 100 записей сохранено
+[2026-02-08T18:50:58.497+0000] {logging_mixin.py:190} INFO - 📊 Загружаю МТС (MTSS)
+[2026-02-08T18:50:58.559+0000] {logging_mixin.py:190} INFO - ✅ MTSS: 100 записей сохранено
+[2026-02-08T18:50:58.560+0000] {logging_mixin.py:190} INFO - 📊 Загружаю ВТБ (VTBR)
+[2026-02-08T18:50:58.628+0000] {logging_mixin.py:190} INFO - ✅ VTBR: 100 записей сохранено
+[2026-02-08T18:50:58.628+0000] {logging_mixin.py:190} INFO - 📊 Загружаю HeadHunter (HHRU)
+[2026-02-08T18:50:58.697+0000] {logging_mixin.py:190} INFO - ✅ HHRU: 100 записей сохранено
+[2026-02-08T18:50:58.697+0000] {logging_mixin.py:190} INFO - 📊 Загружаю Ростелеком (RTKM)
+[2026-02-08T18:50:58.770+0000] {logging_mixin.py:190} INFO - ✅ RTKM: 100 записей сохранено
+[2026-02-08T18:50:58.770+0000] {logging_mixin.py:190} INFO - 📊 Загружаю Новатэк (NVTK)
+[2026-02-08T18:50:58.840+0000] {logging_mixin.py:190} INFO - ✅ NVTK: 100 записей сохранено
+[2026-02-08T18:50:58.840+0000] {logging_mixin.py:190} INFO - 🎉 Обработано 11 инструментов, успешно: 11
+[2026-02-08T18:50:58.841+0000] {python.py:240} INFO - Done. Returned value was: Обработано 11 инструментов, успешно: 11
+[2026-02-08T18:50:58.863+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-02-08T18:50:58.864+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=moex_stocks_loader, task_id=download_moex_stocks, run_id=manual__2026-02-08T18:50:55.278732+00:00, execution_date=20260208T185055, start_date=20260208T185057, end_date=20260208T185058
+[2026-02-08T18:50:58.931+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-08T18:50:58.947+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-08T18:50:58.949+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,48 @@
+[2026-02-08T17:32:18.090+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-08T17:32:18.105+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: moex_stocks_loader.download_all_stocks manual__2026-02-08T17:32:16.234288+00:00 [queued]>
+[2026-02-08T17:32:18.112+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: moex_stocks_loader.download_all_stocks manual__2026-02-08T17:32:16.234288+00:00 [queued]>
+[2026-02-08T17:32:18.113+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 3
+[2026-02-08T17:32:18.124+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): download_all_stocks> on 2026-02-08 17:32:16.234288+00:00
+[2026-02-08T17:32:18.132+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=825) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-08T17:32:18.134+0000] {standard_task_runner.py:72} INFO - Started process 827 to run task
+[2026-02-08T17:32:18.133+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'moex_stocks_loader', 'download_all_stocks', 'manual__2026-02-08T17:32:16.234288+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/ticker_dag.py', '--cfg-path', '/tmp/tmpp__n413q']
+[2026-02-08T17:32:18.136+0000] {standard_task_runner.py:105} INFO - Job 20: Subtask download_all_stocks
+[2026-02-08T17:32:18.186+0000] {task_command.py:467} INFO - Running <TaskInstance: moex_stocks_loader.download_all_stocks manual__2026-02-08T17:32:16.234288+00:00 [running]> on host bd7f3fef13db
+[2026-02-08T17:32:18.420+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='moex_stocks_loader' AIRFLOW_CTX_TASK_ID='download_all_stocks' AIRFLOW_CTX_EXECUTION_DATE='2026-02-08T17:32:16.234288+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-08T17:32:16.234288+00:00'
+[2026-02-08T17:32:18.421+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-02-08T17:32:18.431+0000] {logging_mixin.py:190} INFO - 🧪 Тест API: https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/SBER.json?iss.meta=off&iss.only=history&limit=10
+[2026-02-08T17:32:18.491+0000] {logging_mixin.py:190} INFO - 🧪 Статус: 200
+[2026-02-08T17:32:18.491+0000] {logging_mixin.py:190} INFO - 🧪 Ответ: {
+"history": {
+	"columns": ["BOARDID", "TRADEDATE", "SHORTNAME", "SECID", "NUMTRADES", "VALUE", "OPEN", "LOW", "HIGH", "LEGALCLOSEPRICE", "WAPRICE", "CLOSE", "VOLUME", "MARKETPRICE2", "MARKETPRICE3", "ADMITTEDQUOTE", "MP2VALTRD", "MARKETPRICE3TRADESVALUE", "ADMITTEDVALUE", "WAVAL", "TRADINGSESSION", "CURRENCYID", "TRENDCLSPR", "TRADE_SESSION_DATE"], 
+	"data": [
+		["TQBR", "2013-03-25", "Сбербанк", "SBER", 140, 59340002.8, 96, 96, 101.14, 98.66, 99.95, 98.79, 593680, 99.99, 99.99, 99.99, 8572433621.95, 8572433621.95, 8572433621.95, null, 3, "SUR", null, null],
+		["TQBR", "2013-03-26", "Сбербанк", "SBER", 183, 126030358.8, 98.58, 97.08, 99.31, 97.13, 98.19, 97.2, 1283550, 97.82, 97.82, 97.82, 12218468579.3, 12218468579.3, 12218468579.3, null, 3, "SUR", -1.61, null],
+		["TQBR", "2013-03-27", "Сбербанк", "SBER", 176, 121835900.2, 97.9, 95.39, 98, 96.73, 96.55, 96.75, 1261950, 96.45, 96.45, 96.45, 12519812986.55, 12519812986.55, 12519812986.55, null, 3, "SUR", -0.46, null],
+		["TQBR", "2013
+[2026-02-08T17:32:18.551+0000] {logging_mixin.py:190} INFO - 📋 Доступные тикеры: 200
+[2026-02-08T17:32:18.552+0000] {logging_mixin.py:190} INFO - 
+📈 SBER (Сбербанк)
+[2026-02-08T17:32:18.552+0000] {logging_mixin.py:190} INFO -   Попытка 1: https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/SBER.json?limit=100
+[2026-02-08T17:32:18.623+0000] {logging_mixin.py:190} INFO -   ✅ 200! Ключи: ['history', 'history.cursor']
+[2026-02-08T17:32:18.633+0000] {logging_mixin.py:190} INFO -   🎉 100 строк → /opt/***/dags/data/SBER_test.json
+[2026-02-08T17:32:18.633+0000] {logging_mixin.py:190} INFO - 
+📈 GAZP (Газпром)
+[2026-02-08T17:32:18.634+0000] {logging_mixin.py:190} INFO -   Попытка 1: https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/GAZP.json?limit=100
+[2026-02-08T17:32:18.705+0000] {logging_mixin.py:190} INFO -   ✅ 200! Ключи: ['history', 'history.cursor']
+[2026-02-08T17:32:18.710+0000] {logging_mixin.py:190} INFO -   🎉 100 строк → /opt/***/dags/data/GAZP_test.json
+[2026-02-08T17:32:18.711+0000] {logging_mixin.py:190} INFO - 
+📈 LKOH (Лукойл)
+[2026-02-08T17:32:18.711+0000] {logging_mixin.py:190} INFO -   Попытка 1: https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/LKOH.json?limit=100
+[2026-02-08T17:32:18.784+0000] {logging_mixin.py:190} INFO -   ✅ 200! Ключи: ['history', 'history.cursor']
+[2026-02-08T17:32:18.789+0000] {logging_mixin.py:190} INFO -   🎉 100 строк → /opt/***/dags/data/LKOH_test.json
+[2026-02-08T17:32:18.789+0000] {logging_mixin.py:190} INFO - 
+🎉 Результат: ['SBER: 100 строк', 'GAZP: 100 строк', 'LKOH: 100 строк']
+[2026-02-08T17:32:18.790+0000] {python.py:240} INFO - Done. Returned value was: ['SBER: 100 строк', 'GAZP: 100 строк', 'LKOH: 100 строк']
+[2026-02-08T17:32:18.811+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-02-08T17:32:18.811+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=moex_stocks_loader, task_id=download_all_stocks, run_id=manual__2026-02-08T17:32:16.234288+00:00, execution_date=20260208T173216, start_date=20260208T173218, end_date=20260208T173218
+[2026-02-08T17:32:18.886+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-08T17:32:18.901+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-08T17:32:18.903+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

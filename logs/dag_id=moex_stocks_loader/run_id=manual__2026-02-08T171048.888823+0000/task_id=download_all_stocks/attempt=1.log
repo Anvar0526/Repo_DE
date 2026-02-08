@@ -1,0 +1,58 @@
+[2026-02-08T17:10:50.608+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-02-08T17:10:50.624+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: moex_stocks_loader.download_all_stocks manual__2026-02-08T17:10:48.888823+00:00 [queued]>
+[2026-02-08T17:10:50.629+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: moex_stocks_loader.download_all_stocks manual__2026-02-08T17:10:48.888823+00:00 [queued]>
+[2026-02-08T17:10:50.630+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 3
+[2026-02-08T17:10:50.639+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): download_all_stocks> on 2026-02-08 17:10:48.888823+00:00
+[2026-02-08T17:10:50.647+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=468) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-02-08T17:10:50.649+0000] {standard_task_runner.py:72} INFO - Started process 470 to run task
+[2026-02-08T17:10:50.649+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'moex_stocks_loader', 'download_all_stocks', 'manual__2026-02-08T17:10:48.888823+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/ticker_dag.py', '--cfg-path', '/tmp/tmp_pacw0un']
+[2026-02-08T17:10:50.651+0000] {standard_task_runner.py:105} INFO - Job 15: Subtask download_all_stocks
+[2026-02-08T17:10:50.703+0000] {task_command.py:467} INFO - Running <TaskInstance: moex_stocks_loader.download_all_stocks manual__2026-02-08T17:10:48.888823+00:00 [running]> on host bd7f3fef13db
+[2026-02-08T17:10:50.766+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='student' AIRFLOW_CTX_DAG_ID='moex_stocks_loader' AIRFLOW_CTX_TASK_ID='download_all_stocks' AIRFLOW_CTX_EXECUTION_DATE='2026-02-08T17:10:48.888823+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-08T17:10:48.888823+00:00'
+[2026-02-08T17:10:50.767+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-02-08T17:10:50.779+0000] {logging_mixin.py:190} INFO - 📅 Загрузка за период: 2026-02-06 - 2026-02-07
+[2026-02-08T17:10:50.780+0000] {logging_mixin.py:190} INFO - 📈 Скачиваем Газпром (GAZP.ME)...
+[2026-02-08T17:10:51.508+0000] {history.py:276} ERROR - $GAZP.ME: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:10:51.513+0000] {multi.py:176} ERROR - 
+1 Failed download:
+[2026-02-08T17:10:51.513+0000] {multi.py:189} ERROR - ['GAZP.ME']: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:10:51.522+0000] {logging_mixin.py:190} INFO -   ⚠️ Нет данных для GAZP.ME
+[2026-02-08T17:10:51.522+0000] {logging_mixin.py:190} INFO - 📈 Скачиваем Сбербанк (SBER.ME)...
+[2026-02-08T17:10:51.809+0000] {history.py:276} ERROR - $SBER.ME: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:10:51.817+0000] {multi.py:176} ERROR - 
+1 Failed download:
+[2026-02-08T17:10:51.818+0000] {multi.py:189} ERROR - ['SBER.ME']: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:10:51.820+0000] {logging_mixin.py:190} INFO -   ⚠️ Нет данных для SBER.ME
+[2026-02-08T17:10:51.821+0000] {logging_mixin.py:190} INFO - 📈 Скачиваем Лукойл (LKOH.ME)...
+[2026-02-08T17:10:51.999+0000] {multi.py:176} ERROR - 
+1 Failed download:
+[2026-02-08T17:10:51.999+0000] {history.py:276} ERROR - $LKOH.ME: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:10:51.999+0000] {multi.py:189} ERROR - ['LKOH.ME']: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:10:52.003+0000] {logging_mixin.py:190} INFO -   ⚠️ Нет данных для LKOH.ME
+[2026-02-08T17:10:52.003+0000] {logging_mixin.py:190} INFO - 📈 Скачиваем Яндекс (YNDX.ME)...
+[2026-02-08T17:10:52.968+0000] {history.py:127} ERROR - $YNDX.ME: possibly delisted; no timezone found
+[2026-02-08T17:10:52.972+0000] {multi.py:176} ERROR - 
+1 Failed download:
+[2026-02-08T17:10:52.973+0000] {multi.py:189} ERROR - ['YNDX.ME']: possibly delisted; no timezone found
+[2026-02-08T17:10:52.975+0000] {logging_mixin.py:190} INFO -   ⚠️ Нет данных для YNDX.ME
+[2026-02-08T17:10:52.975+0000] {logging_mixin.py:190} INFO - 📈 Скачиваем Новатэк (NVTK.ME)...
+[2026-02-08T17:10:53.153+0000] {history.py:276} ERROR - $NVTK.ME: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:10:53.157+0000] {multi.py:176} ERROR - 
+1 Failed download:
+[2026-02-08T17:10:53.158+0000] {multi.py:189} ERROR - ['NVTK.ME']: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:10:53.161+0000] {logging_mixin.py:190} INFO -   ⚠️ Нет данных для NVTK.ME
+[2026-02-08T17:10:53.161+0000] {logging_mixin.py:190} INFO - 📈 Скачиваем Магнит (MGNT.ME)...
+[2026-02-08T17:10:53.344+0000] {history.py:276} ERROR - $MGNT.ME: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:10:53.350+0000] {multi.py:176} ERROR - 
+1 Failed download:
+[2026-02-08T17:10:53.353+0000] {multi.py:189} ERROR - ['MGNT.ME']: possibly delisted; no price data found  (1d 2026-02-06 19:00:00+00:00 -> 2026-02-07 19:00:00+00:00)
+[2026-02-08T17:10:53.358+0000] {logging_mixin.py:190} INFO -   ⚠️ Нет данных для MGNT.ME
+[2026-02-08T17:10:53.360+0000] {logging_mixin.py:190} INFO - 🎉 Итого: 0/6 акций успешно загружено
+[2026-02-08T17:10:53.365+0000] {python.py:240} INFO - Done. Returned value was: {}
+[2026-02-08T17:10:53.393+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-02-08T17:10:53.395+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=moex_stocks_loader, task_id=download_all_stocks, run_id=manual__2026-02-08T17:10:48.888823+00:00, execution_date=20260208T171048, start_date=20260208T171050, end_date=20260208T171053
+[2026-02-08T17:10:53.462+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-02-08T17:10:53.485+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-02-08T17:10:53.488+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
