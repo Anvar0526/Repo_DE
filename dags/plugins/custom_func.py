@@ -7,6 +7,13 @@ from sqlalchemy import create_engine, text
 from airflow.models import Variable
 
 
+MOEX_HISTORY_URL = (
+    "https://iss.moex.com/iss/history/engines/stock/markets/shares/"
+    "boards/TQBR/securities/{ticker}.json"
+    "?iss.meta=off&iss.only=history&from={date}"
+)
+
+
 def download_moex_stocks(**context):
     """
     Загружает исторические данные акций MOEX за вчерашний день в JSON файлы.
@@ -59,7 +66,7 @@ def download_moex_stocks(**context):
         
         print(f"📊 Загружаю {info['name']} ({ticker})")
         
-        url = f"https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/{ticker}.json?iss.meta=off&iss.only=history&from={date_str}"
+        url = MOEX_HISTORY_URL.format(ticker=ticker, date=date_str)
         
         try:
             response = requests.get(url, timeout=30)
@@ -158,14 +165,16 @@ def download_moex_stocks_postgres(**context):
     with engine.connect() as conn:
         conn.execute(text(CREATE_TABLE_SQL))
     
-    date_str = context['yesterday_ds']
+    # Airflow может отдавать Proxy-объект, приводим к str и date
+    date_str = str(context["yesterday_ds"])
+    date_value = pd.to_datetime(date_str).date()
     success_count = 0
     inserted_rows = 0
     
     for ticker, info in config.items():
         print(f"[PG] 📊 {info['name']} ({ticker})")
         
-        url = f"https://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities/{ticker}.json?iss.meta=off&iss.only=history&from={date_str}"
+        url = MOEX_HISTORY_URL.format(ticker=ticker, date=date_str)
         
         try:
             response = requests.get(url, timeout=30)
@@ -183,8 +192,32 @@ def download_moex_stocks_postgres(**context):
                         })
                         df = df[['trade_date', 'ticker', 'board', 'close', 'open', 'high', 'low', 'volume', 'value']]
                         df['trade_date'] = pd.to_datetime(df['trade_date']).dt.date
-                        
-                        rows = df.to_sql('moex_stock_history', engine, if_exists='append', index=False, method='multi')
+
+                        # Идемпотентность: перед вставкой удаляем старые данные за эту дату/тикер/борд
+                        with engine.begin() as conn:
+                            conn.execute(
+                                text(
+                                    """
+                                    DELETE FROM moex_stock_history
+                                    WHERE trade_date = :trade_date
+                                      AND ticker = :ticker
+                                      AND board = :board
+                                    """
+                                ),
+                                {
+                                    "trade_date": date_value,
+                                    "ticker": ticker,
+                                    "board": "TQBR",
+                                },
+                            )
+                            df.to_sql(
+                                "moex_stock_history",
+                                conn,
+                                if_exists="append",
+                                index=False,
+                                method="multi",
+                            )
+
                         print(f"[PG] ✅ {ticker}: {len(df)} строк")
                         inserted_rows += len(df)
                     success_count += 1
