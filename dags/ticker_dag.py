@@ -7,7 +7,7 @@ import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'plugins'))
 
-from custom_func import download_moex_stocks, download_moex_stocks_postgres
+from custom_func import download_moex_stocks_postgres
 
 
 with DAG(
@@ -21,16 +21,12 @@ with DAG(
 
     start = EmptyOperator(task_id="start")
 
-    download_api = PythonOperator(
-        task_id='download_moex_stocks',
-        python_callable=download_moex_stocks,
-    )
 
-    download_pg = PythonOperator(
+    api_to_pg = PythonOperator(
         task_id='download_moex_stocks_postgres',
         python_callable=download_moex_stocks_postgres,
     )
 
     end = EmptyOperator(task_id="end")
 
-    start >> [download_api, download_pg] >> end
+    start >> api_to_pg >> end
